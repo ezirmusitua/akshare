@@ -2,21 +2,17 @@
 
 ## 每日净流多列表(商品)
 
-### 接口名称
+接口：commodity_flow_long
 
-commodity_flow_long
+接口描述：每日净流多列表（商品）接口
 
-### 接口描述
-
-每日净流多列表（商品）接口
-
-### 请求参数
+请求参数：
 
 | 参数名  | 说明   | 举例         |
 |:-----|:-----|------------|
 | date | 查询日期 | 2018-08-08 |
 
-### 返回参数
+返回参数：
 
 | 参数名     | 类型     | 说明       |
 |:--------|:-------|----------|
@@ -24,7 +20,7 @@ commodity_flow_long
 | money   | float  | 流多资金，单位元 |
 | variety | string | 品种编码     |
 
-### 示例代码
+示例代码：
 
 ```python
 from akshare import pro_api
@@ -33,7 +29,7 @@ commodity_flow_long_df = pro.commodity_flow_long(date="2018-08-08")
 print(commodity_flow_long_df)
 ```
 
-### 返回示例
+返回示例：
 
 ```
   broker       money variety
@@ -51,21 +47,17 @@ print(commodity_flow_long_df)
 
 ## 每日净流空列表(商品)
 
-### 接口名称
+接口：commodity_flow_short
 
-commodity_flow_short
+接口描述：每日净流空列表(商品)接口
 
-### 接口描述
-
-每日净流空列表(商品)接口
-
-### 请求参数
+请求参数：
 
 | 参数名  | 说明   | 举例         |
 |:-----|:-----|------------|
 | date | 查询日期 | 2018-08-08 |
 
-### 返回参数
+返回参数：
 
 | 参数名     | 类型     | 说明       |
 |:--------|:-------|----------|
@@ -73,7 +65,7 @@ commodity_flow_short
 | money   | float  | 流空资金，单位元 |
 | variety | string | 品种编码     |
 
-### 示例代码
+示例代码：
 
 ```python
 from akshare import pro_api
@@ -82,7 +74,7 @@ commodity_flow_short_df = pro.commodity_flow_short(date="2018-08-08")
 print(commodity_flow_short_df)
 ```
 
-### 返回示例
+返回示例：
 
 ```
   broker       money variety
@@ -100,21 +92,17 @@ print(commodity_flow_short_df)
 
 ## 每日净流多列表(指数)
 
-### 接口名称
+接口：stock_flow_long
 
-stock_flow_long
+接口描述：每日净流多列表(指数)接口
 
-### 接口描述
-
-每日净流多列表(指数)接口
-
-### 请求参数
+请求参数：
 
 | 参数名  | 说明   | 举例         |
 |:-----|:-----|------------|
 | date | 查询日期 | 2018-08-08 |
 
-### 返回参数
+返回参数：
 
 | 参数名     | 类型     | 说明       |
 |:--------|:-------|----------|
@@ -122,7 +110,7 @@ stock_flow_long
 | money   | float  | 流多资金，单位元 |
 | variety | string | 品种编码     |
 
-### 示例代码
+示例代码：
 
 ```python
 from akshare import pro_api
@@ -131,7 +119,7 @@ stock_flow_long_df = pro.stock_flow_long(date="2018-08-08")
 print(stock_flow_long_df)
 ```
 
-### 返回示例
+返回示例：
 
 ```
   broker       money variety
@@ -149,21 +137,17 @@ print(stock_flow_long_df)
 
 ## 每日净流空列表(指数)
 
-### 接口名称
+接口：stock_flow_short
 
-stock_flow_short
+接口描述：每日净流空列表(指数)接口
 
-### 接口描述
-
-每日净流空列表(指数)接口
-
-### 请求参数
+请求参数：
 
 | 参数名  | 说明   | 举例         |
 |:-----|:-----|------------|
 | date | 查询日期 | 2018-08-08 |
 
-### 返回参数
+返回参数：
 
 | 参数名     | 类型     | 说明       |
 |:--------|:-------|----------|
@@ -171,7 +155,7 @@ stock_flow_short
 | money   | float  | 流空资金，单位元 |
 | variety | string | 品种编码     |
 
-### 示例代码
+示例代码：
 
 ```python
 from akshare import pro_api
@@ -180,7 +164,7 @@ stock_flow_short_df = pro.stock_flow_short(date="2018-08-08")
 print(stock_flow_short_df)
 ```
 
-### 返回示例
+返回示例：
 
 ```
   broker       money variety
@@ -198,28 +182,24 @@ print(stock_flow_short_df)
 
 ## 每日商品保证金沉淀变化
 
-### 接口名称
+接口：money_in_out
 
-money_in_out
+接口描述：每日商品保证金沉淀变化接口
 
-### 接口描述
-
-每日商品保证金沉淀变化接口
-
-### 请求参数
+请求参数：
 
 | 参数名  | 说明   | 举例         |
 |:-----|:-----|------------|
 | date | 查询日期 | 2018-08-08 |
 
-### 返回参数
+返回参数：
 
 | 参数名    | 类型     | 说明           |
 |:-------|:-------|--------------|
 | symbol | string | 品种编码         |
 | chge   | float  | 品种沉淀资金变化，单位元 |
 
-### 示例代码
+示例代码：
 
 ```python
 from akshare import pro_api
@@ -228,7 +208,7 @@ money_in_out_df = pro.money_in_out(date="2018-08-08")
 print(money_in_out_df)
 ```
 
-### 返回示例
+返回示例：
 
 ```
            chge symbol
@@ -282,3 +262,4 @@ print(money_in_out_df)
 47  220199220.0     TA
 48  293341736.0     NI
 ```
+
