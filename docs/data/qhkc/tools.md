@@ -2,37 +2,34 @@
 
 ## 龙虎牛熊多头合约池
 
-### 接口名称
+接口名称：long_pool
 
-long_pool
+接口描述：龙虎牛熊多头合约池接口
 
-### 接口描述
-
-龙虎牛熊多头合约池接口
-
-### 请求参数
+请求参数：
 
 | 参数名  | 说明   | 举例         |
 |:-----|:-----|------------|
 | date | 查询日期 | 2018-08-08 |
 
-### 返回参数
+返回参数：
 
 | 参数名    | 类型     | 说明   |
 |:-------|:-------|------|
 | symbol | string | 品种编码 |
 | code   | string | 合约代号 |
 
-### 示例代码
+示例代码：
 
 ```python
 from akshare import pro_api
+
 pro = pro_api(token="在此处输入您的 token, 可以联系奇货可查网站管理员获取")
 long_pool_df = pro.long_pool(date="2018-08-08")
 print(long_pool_df)
 ```
 
-### 返回示例
+返回示例：
 
 ```
       code symbol
@@ -73,37 +70,34 @@ print(long_pool_df)
 
 ## 龙虎牛熊空头合约池
 
-### 接口名称
+接口名称：short_pool
 
-short_pool
+接口描述：龙虎牛熊空头合约池
 
-### 接口描述
-
-龙虎牛熊空头合约池
-
-### 请求参数
+请求参数：
 
 | 参数名  | 说明   | 举例         |
 |:-----|:-----|------------|
 | date | 查询日期 | 2018-08-08 |
 
-### 返回参数
+返回参数：
 
 | 参数名    | 类型     | 说明   |
 |:-------|:-------|------|
 | symbol | string | 品种编码 |
 | code   | string | 合约代号 |
 
-### 示例代码
+示例代码：
 
 ```python
 from akshare import pro_api
+
 pro = pro_api(token="在此处输入您的 token, 可以联系奇货可查网站管理员获取")
 short_pool_df = pro.short_pool(date="2018-08-08")
 print(short_pool_df)
 ```
 
-### 返回示例
+返回示例：
 
 ```
       code symbol
@@ -150,3 +144,4 @@ print(short_pool_df)
 40  if1809     IF
 41  ih1808     IH
 ```
+
