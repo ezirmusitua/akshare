@@ -2,22 +2,18 @@
 
 ## 基差数据
 
-### 接口名称
+接口名称：basis
 
-basis
+接口描述：基差数据接口
 
-### 接口描述
-
-基差数据接口
-
-### 请求参数
+请求参数：
 
 |参数名|说明|举例|
 |:-----  |:-----|-----                           |
 |variety |品种编码   |RB|
 |date |查询日期   |2018-08-08|
 
-### 返回参数
+返回参数：
 
 |参数名|类型|说明|
 |:-----  |:-----|-----                           |
@@ -26,16 +22,17 @@ basis
 |basis |float   |基差，基差 = 现货价格 - 期货价格  |
 |basis_rate |float   |基差率，基差率 = (现货价格 - 期货价格) / 现货价格 x 100%  |
 
-### 示例代码
+示例代码：
 
 ```python
 from akshare import pro_api
+
 pro = pro_api(token="在此处输入您的 token, 可以联系奇货可查网站管理员获取")
 basis_df = pro.basis(variety="RB", date="2018-08-08")
 print(basis_df)
 ```
 
-### 返回示例
+返回示例：
 
 ```
                  basis
@@ -47,38 +44,35 @@ basis_rate     4.35764
 
 ## 期限结构
 
-### 接口名称
+接口名称：term_structure
 
-term_structure
+接口描述：期限结构接口
 
-### 接口描述
-
-期限结构接口
-
-### 请求参数
+请求参数：
 
 |参数名|说明|举例|
 |:-----  |:-----|-----                           |
 |variety |品种编码   |RB|
 |date |查询日期   |2018-08-08|
 
-### 返回参数
+返回参数：
 
 |参数名|类型|说明|
 |:-----  |:-----|-----                           |
 |code |string   |合约代号  |
 |close |float   |收盘价  |
 
-### 示例代码
+示例代码：
 
 ```python
 from akshare import pro_api
+
 pro = pro_api(token="在此处输入您的 token, 可以联系奇货可查网站管理员获取")
 term_structure_df = pro.term_structure(variety="RB", date="2018-08-08")
 print(term_structure_df)
 ```
 
-### 返回示例
+返回示例：
 
 ```
     close    code
@@ -100,29 +94,25 @@ print(term_structure_df)
 
 ### 参数类型一
 
-#### 接口名称
+接口名称：inventory
 
-inventory
+接口描述：库存数据接口-参数类型一
 
-#### 接口描述
-
-库存数据接口-参数类型一
-
-#### 请求参数
+请求参数：
 
 | 参数名     | 说明   | 举例         |
 |:--------|:-----|------------|
 | variety | 品种编码 | RB         |
 | date    | 查询日期 | 2018-08-08 |
 
-#### 返回参数
+返回参数：
 
 | 参数名        | 类型    | 说明    |
 |:-----------|:------|-------|
 | trans_date | date  | 查询日期  |
 | vol        | float | 库存数据量 |
 
-#### 示例代码
+示例代码：
 
 ```python
 from akshare import pro_api
@@ -132,7 +122,7 @@ inventory_df = pro.inventory(variety="RB", date="2018-08-08")
 print(inventory_df)
 ```
 
-#### 返回示例
+返回示例：
 
 ```
              inventory
@@ -142,15 +132,11 @@ vol             605.76
 
 ### 参数类型二
 
-#### 接口名称
+接口名称：inventory
 
-inventory
+接口描述：库存数据接口-参数类型二
 
-#### 接口描述
-
-库存数据接口-参数类型二
-
-#### 请求参数
+请求参数：
 
 | 参数名         | 说明    | 举例   |
 |:------------|:------|------|
@@ -158,14 +144,14 @@ inventory
 | year        | 查询年份  | 2019 |
 | week_number | 该年第几周 | 10   |
 
-#### 返回参数
+返回参数：
 
 | 参数名        | 类型    | 说明    |
 |:-----------|:------|-------|
 | trans_date | date  | 查询日期  |
 | vol        | float | 库存数据量 |
 
-#### 示例代码
+示例代码：
 
 ```python
 from akshare import pro_api
@@ -175,7 +161,7 @@ inventory_df = pro.inventory(variety="RB", year="2019", week_number="10")
 print(inventory_df)
 ```
 
-#### 返回示例
+返回示例：
 
 ```
              inventory
@@ -185,22 +171,18 @@ vol            1326.64
 
 ## 利润数据
 
-### 接口名称
+接口名称：profit
 
-profit
+接口描述：利润数据接口
 
-### 接口描述
-
-利润数据接口
-
-### 请求参数
+请求参数：
 
 |参数名|说明|举例|
 |:-----  |:-----|-----                           |
 |variety |品种编码   |RB|
 |date |查询日期   |2018-12-08|
 
-### 返回参数
+返回参数：
 
 |参数名|类型|说明|
 |:-----  |:-----|-----                           |
@@ -208,16 +190,17 @@ profit
 |profit |float   |利润，折盘面价格  |
 |profit_rate |float   |利润率  |
 
-### 示例代码
+示例代码：
 
 ```python
 from akshare import pro_api
+
 pro = pro_api(token="在此处输入您的 token, 可以联系奇货可查网站管理员获取")
 profit_df = pro.profit(variety="RB", date="2019-12-12")
 print(profit_df)
 ```
 
-### 返回示例
+返回示例：
 
 ```
                  profit
@@ -228,22 +211,18 @@ profit_rate       16.58
 
 ## 现货贸易商报价
 
-### 接口名称
+接口名称：trader_prices
 
-trader_prices
+接口描述：现货贸易商报价接口
 
-### 接口描述
-
-现货贸易商报价接口
-
-### 请求参数
+请求参数：
 
 |参数名|说明|举例|
 |:-----  |:-----|-----                           |
 |variety |品种编码   |RB|
 |date |查询日期   |2018-08-08|
 
-### 返回参数
+返回参数：
 
 |参数名|类型|说明|
 |:-----  |:-----|-----                           |
@@ -253,16 +232,17 @@ trader_prices
 |model |string   |型号、规格  |
 |unit |string   |单位  |
 
-### 示例代码
+示例代码：
 
 ```python
 from akshare import pro_api
+
 pro = pro_api(token="在此处输入您的 token, 可以联系奇货可查网站管理员获取")
 trader_prices_df = pro.trader_prices(variety="RB", date="2020-03-30")
 print(trader_prices_df)
 ```
 
-### 返回示例
+返回示例：
 
 ```
   band                      model name  price unit
@@ -279,15 +259,11 @@ print(trader_prices_df)
 
 ## 跨期套利数据
 
-### 接口名称
+接口名称：intertemporal_arbitrage
 
-intertemporal_arbitrage
+接口描述：跨期套利数据接口
 
-### 接口描述
-
-跨期套利数据接口
-
-### 请求参数
+请求参数：
 
 |参数名|说明|举例|
 |:-----  |:-----|-----                           |
@@ -296,7 +272,7 @@ intertemporal_arbitrage
 |code2 |合约月份2   |05|
 |date |查询日期   |2018-08-08|
 
-### 返回参数
+返回参数：
 
 |参数名|类型|说明|
 |:-----  |:-----|-----                           |
@@ -307,16 +283,17 @@ intertemporal_arbitrage
 |close2 |float   |合约2价格  |
 |spread |float   |价差，合约1价格 - 合约2价格  |
 
-### 示例代码
+示例代码：
 
 ```python
 from akshare import pro_api
+
 pro = pro_api(token="在此处输入您的 token, 可以联系奇货可查网站管理员获取")
 intertemporal_arbitrage_df = pro.intertemporal_arbitrage(variety="RB", code1="01", code2="05", date="2018-08-08")
 print(intertemporal_arbitrage_df)
 ```
 
-### 返回示例
+返回示例：
 
 ```
            intertemporal_arbitrage
@@ -330,15 +307,11 @@ spread                         179
 
 ## 自由价差数据
 
-### 接口名称
+接口名称：free_spread
 
-free_spread
+接口描述：自由价差数据接口
 
-### 接口描述
-
-自由价差数据接口
-
-### 请求参数
+请求参数：
 
 |参数名|说明|举例|
 |:-----  |:-----|-----                           |
@@ -348,7 +321,7 @@ free_spread
 |code2 |合约月份2   |01|
 |date |查询日期   |2018-08-08|
 
-### 返回参数
+返回参数：
 
 |参数名|类型|说明|
 |:-----  |:-----|-----                           |
@@ -359,16 +332,17 @@ free_spread
 |code2_close |float   |合约2价格  |
 |spread |float   |价差，合约1价格 - 合约2价格  |
 
-### 示例代码
+示例代码：
 
 ```python
 from akshare import pro_api
+
 pro = pro_api(token="在此处输入您的 token, 可以联系奇货可查网站管理员获取")
 free_spread_df = pro.free_spread(variety1="RB", code1="01", variety2="HC", code2="01", date="2018-08-08")
 print(free_spread_df)
 ```
 
-### 返回示例
+返回示例：
 
 ```
             free_spread
@@ -382,15 +356,11 @@ spread               -6
 
 ## 自由价比数据
 
-### 接口名称
+接口名称：free_ratio
 
-free_ratio
+接口描述：自由价比数据接口
 
-### 接口描述
-
-自由价比数据接口
-
-### 请求参数
+请求参数：
 
 |参数名|说明|举例|
 |:-----  |:-----|-----                           |
@@ -400,7 +370,7 @@ free_ratio
 |code2 |合约月份2   |01|
 |date |查询日期   |2018-08-08|
 
-### 返回参数
+返回参数：
 
 |参数名|类型|说明|
 |:-----  |:-----|-----                           |
@@ -411,16 +381,17 @@ free_ratio
 |code2_close |float   |合约2价格  |
 |ratio |float   |价比，合约1价格 / 合约2价格  |
 
-### 示例代码
+示例代码：
 
 ```python
 from akshare import pro_api
+
 pro = pro_api(token="在此处输入您的 token, 可以联系奇货可查网站管理员获取")
 free_ratio_df = pro.free_ratio(variety1="RB", code1="01", variety2="HC", code2="01", date="2018-08-08")
 print(free_ratio_df)
 ```
 
-### 返回示例
+返回示例：
 
 ```
              free_ratio
@@ -434,22 +405,18 @@ ratio          0.998537
 
 ## 仓单数据
 
-### 接口名称
+接口名称：warehouse_receipt
 
-warehouse_receipt
+接口描述：仓单数据接口
 
-### 接口描述
-
-仓单数据接口
-
-### 请求参数
+请求参数：
 
 |参数名|说明|举例|
 |:-----  |:-----|-----                           |
 |variety |品种编码   |RB|
 |date |查询日期   |2018-08-08|
 
-### 返回参数
+返回参数：
 
 |参数名|类型|说明|
 |:-----  |:-----|-----                           |
@@ -457,16 +424,17 @@ warehouse_receipt
 |total_vol |float   |仓单数据  |
 |total_chge |float   |仓单变化量  |
 
-### 示例代码
+示例代码：
 
 ```python
 from akshare import pro_api
+
 pro = pro_api(token="在此处输入您的 token, 可以联系奇货可查网站管理员获取")
 warehouse_receipt_df = pro.warehouse_receipt(variety="RB", date="2018-08-08")
 print(warehouse_receipt_df)
 ```
 
-### 返回示例
+返回示例：
 
 ```
            warehouse_receipt
@@ -477,21 +445,17 @@ total_chge                 0
 
 ## 仓单汇总数据
 
-### 接口名称
+接口名称：warehouse_receipt
 
-warehouse_receipt
+接口描述：仓单汇总数据接口
 
-### 接口描述
-
-仓单汇总数据接口
-
-### 请求参数
+请求参数：
 
 |参数名|说明|举例|
 |:-----  |:-----|-----                           |
 |date |查询日期   |2018-08-08|
 
-### 返回参数
+返回参数：
 
 | 参数名        | 类型     | 说明    |
 |:-----------|:-------|-------|
@@ -499,7 +463,7 @@ warehouse_receipt
 | total_vol  | float  | 仓单数据  |
 | total_chge | float  | 仓单变化量 |
 
-### 示例代码
+示例代码：
 
 ```python
 from akshare import pro_api
@@ -509,7 +473,7 @@ warehouse_receipt_sum_df = pro.warehouse_receipt(date="2018-08-08")
 print(warehouse_receipt_sum_df)
 ```
 
-### 返回示例
+返回示例：
 
 ```
    symbol  total_chge  total_vol
@@ -546,15 +510,11 @@ print(warehouse_receipt_sum_df)
 
 ## 虚实盘比数据
 
-### 接口名称
+接口名称：virtual_real
 
-virtual_real
+接口描述：虚实盘比数据接口
 
-### 接口描述
-
-虚实盘比数据接口
-
-### 请求参数
+请求参数：
 
 |参数名|说明|举例|
 |:-----  |:-----|-----                           |
@@ -562,7 +522,7 @@ virtual_real
 |code |合约月份   |10|
 |date |查询日期   |2018-08-08|
 
-### 返回参数
+返回参数：
 
 |参数名|类型|说明|
 |:-----  |:-----|-----                           |
@@ -572,16 +532,17 @@ virtual_real
 |real |float   |实盘量  |
 |rate |float   |虚实盘比  |
 
-### 示例代码
+示例代码：
 
 ```python
 from akshare import pro_api
+
 pro = pro_api(token="在此处输入您的 token, 可以联系奇货可查网站管理员获取")
 virtual_real_df = pro.virtual_real(variety="RB", code="10", date="2018-08-08")
 print(virtual_real_df)
 ```
 
-### 返回示例
+返回示例：
 
 ```
            virtual_real
@@ -591,3 +552,4 @@ virtual         1080026
 real              385.6
 rate             2800.9
 ```
+
