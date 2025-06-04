@@ -2,22 +2,18 @@
 
 ## 席位持仓数据
 
-### 接口名称
+接口：broker_positions
 
-broker_positions
+接口描述：席位持仓数据接口
 
-### 接口描述
-
-席位持仓数据接口
-
-### 请求参数
+请求参数：
 
 | 参数名    | 说明   | 举例         |
 |:-------|:-----|------------|
 | broker | 席位   | 永安期货       |
 | date   | 查询日期 | 2018-08-08 |
 
-### 返回参数
+返回参数：
 
 | 参数名        | 类型     | 说明      |
 |:-----------|:-------|---------|
@@ -28,7 +24,7 @@ broker_positions
 | short_chge | int    | 空头持仓变化量 |
 | symbol     | string | 品种编码    |
 
-### 示例代码
+示例代码：
 
 ```python
 from akshare import pro_api
@@ -37,7 +33,7 @@ broker_positions_df = pro.broker_positions(broker="永安期货", date="2018-08-
 print(broker_positions_df)
 ```
 
-### 返回示例
+返回示例：
 
 ```
        code   long  long_chge  short  short_chge symbol
@@ -106,15 +102,11 @@ print(broker_positions_df)
 
 ## 席位盈亏数据
 
-### 接口名称
+接口：broker_calendar
 
-broker_calendar
+接口描述：席位盈亏数据接口
 
-### 接口描述
-
-席位盈亏数据接口
-
-### 请求参数
+请求参数：
 
 | 参数名        | 说明     | 举例         |
 |:-----------|:-------|------------|
@@ -122,14 +114,14 @@ broker_calendar
 | start_date | 查询开始日期 | 2018-07-08 |
 | end_date   | 查询结束日期 | 2018-08-08 |
 
-### 返回参数
+返回参数：
 
 | 参数名        | 类型    | 说明       |
 |:-----------|:------|----------|
 | trans_date | date  | 查询日期     |
 | profit     | float | 席位盈亏，单位元 |
 
-### 示例代码
+示例代码：
 
 ```python
 from akshare import pro_api
@@ -138,7 +130,7 @@ broker_calendar_df = pro.broker_calendar(broker="永安期货", start_date="2018
 print(broker_calendar_df)
 ```
 
-### 返回示例
+返回示例：
 
 ```
        profit  trans_date
@@ -169,15 +161,11 @@ print(broker_calendar_df)
 
 ## 席位每日大资金流动数据
 
-### 接口名称
+接口：broker_flow
 
-broker_flow
+接口描述：席位每日大资金流动数据接口
 
-### 接口描述
-
-席位每日大资金流动数据接口
-
-### 请求参数
+请求参数：
 
 | 参数名    | 说明            | 举例         |
 |:-------|:--------------|------------|
@@ -185,14 +173,14 @@ broker_flow
 | date   | 查询日期          | 2018-08-08 |
 | offset | 查询阈值，大于这个值才返回 | 1000000    |
 
-### 返回参数
+返回参数：
 
 | 参数名     | 类型     | 说明                     |
 |:--------|:-------|------------------------|
 | variety | string | 品种编码                   |
 | money   | float  | 保证金流动量，正数为流多，负数为流空，单位元 |
 
-### 示例代码
+示例代码：
 
 ```python
 from akshare import pro_api
@@ -201,7 +189,7 @@ broker_flow_df = pro.broker_flow(broker="永安期货", date="2018-08-08", offse
 print(broker_flow_df)
 ```
 
-### 返回示例
+返回示例：
 
 ```
           money variety
@@ -244,28 +232,24 @@ print(broker_flow_df)
 
 ## 席位多空比数据
 
-### 接口名称
+接口：broker_bbr
 
-broker_bbr
+接口描述：席位多空比数据接口
 
-### 接口描述
-
-席位多空比数据接口
-
-### 请求参数
+请求参数：
 
 | 参数名    | 说明   | 举例         |
 |:-------|:-----|------------|
 | broker | 席位   | 永安期货       |
 | date   | 查询日期 | 2018-08-08 |
 
-### 返回参数
+返回参数：
 
 | 参数名 | 类型    | 说明  |
 |:----|:------|-----|
 | bbr | float | 多空比 |
 
-### 示例代码
+示例代码：
 
 ```python
 from akshare import pro_api
@@ -274,7 +258,7 @@ broker_bbr_df = pro.broker_bbr(broker="永安期货", date="2018-08-08")
 print(broker_bbr_df)
 ```
 
-### 返回示例
+返回示例：
 
 ```
      broker_bbr
@@ -283,29 +267,25 @@ bbr    54.36208
 
 ## 席位净持仓保证金变化数据
 
-### 接口名称
+接口：broker_net_money_chge
 
-broker_net_money_chge
+接口描述：席位净持仓保证金变化数据接口
 
-### 接口描述
-
-席位净持仓保证金变化数据接口
-
-### 请求参数
+请求参数：
 
 | 参数名    | 说明   | 举例         |
 |:-------|:-----|------------|
 | broker | 席位   | 永安期货       |
 | date   | 查询日期 | 2018-08-08 |
 
-### 返回参数
+返回参数：
 
 | 参数名    | 类型     | 说明                        |
 |:-------|:-------|---------------------------|
 | symbol | string | 品种编码                      |
 | value  | float  | 净持仓保证金变化量，正数为流多，负数为流空，单位元 |
 
-### 示例代码
+示例代码：
 
 ```python
 from akshare import pro_api
@@ -314,7 +294,7 @@ broker_net_money_chge_df = pro.broker_net_money_chge(broker="永安期货", date
 print(broker_net_money_chge_df)
 ```
 
-### 返回示例
+返回示例：
 
 ```
    symbol        value
@@ -367,29 +347,25 @@ print(broker_net_money_chge_df)
 
 ## 席位净持仓保证金数据
 
-### 接口名称
+接口：broker_net_money
 
-broker_net_money
+接口描述：席位净持仓保证金数据接口
 
-### 接口描述
-
-席位净持仓保证金数据接口
-
-### 请求参数
+请求参数：
 
 | 参数名    | 说明   | 举例         |
 |:-------|:-----|------------|
 | broker | 席位   | 永安期货       |
 | date   | 查询日期 | 2018-08-08 |
 
-### 返回参数
+返回参数：
 
 | 参数名    | 类型     | 说明                     |
 |:-------|:-------|------------------------|
 | symbol | string | 品种编码                   |
 | value  | float  | 净持仓保证金，正数为净多，负数为净空，单位元 |
 
-### 示例代码
+示例代码：
 
 ```python
 from akshare import pro_api
@@ -398,7 +374,7 @@ broker_net_money_df = pro.broker_net_money(broker="永安期货", date="2018-08-
 print(broker_net_money_df)
 ```
 
-### 返回示例
+返回示例：
 
 ```
    symbol      value
@@ -451,29 +427,25 @@ print(broker_net_money_df)
 
 ## 席位总持仓保证金数据
 
-### 接口名称
+接口：broker_total_money
 
-broker_total_money
+接口描述：席位总持仓保证金数据接口
 
-### 接口描述
-
-席位总持仓保证金数据接口
-
-### 请求参数
+请求参数：
 
 | 参数名    | 说明   | 举例         |
 |:-------|:-----|------------|
 | broker | 席位   | 永安期货       |
 | date   | 查询日期 | 2018-08-08 |
 
-### 返回参数
+返回参数：
 
 | 参数名    | 类型     | 说明         |
 |:-------|:-------|------------|
 | symbol | string | 品种编码       |
 | value  | float  | 总持仓保证金，单位元 |
 
-### 示例代码
+示例代码：
 
 ```python
 from akshare import pro_api
@@ -482,7 +454,7 @@ broker_total_money_df = pro.broker_total_money(broker="永安期货", date="2018
 print(broker_total_money_df)
 ```
 
-### 返回示例
+返回示例：
 
 ```
    symbol      value
@@ -535,15 +507,11 @@ print(broker_total_money_df)
 
 ## 席位的商品盈亏数据
 
-### 接口名称
+接口：broker_profit
 
-broker_profit
+接口描述：席位的商品盈亏数据接口
 
-### 接口描述
-
-席位的商品盈亏数据接口
-
-### 请求参数
+请求参数：
 
 | 参数名        | 说明     | 举例         |
 |:-----------|:-------|------------|
@@ -551,14 +519,14 @@ broker_profit
 | start_date | 查询开始日期 | 2018-07-08 |
 | end_date   | 查询结束日期 | 2018-07-08 |
 
-### 返回参数
+返回参数：
 
 | 参数名          | 类型     | 说明       |
 |:-------------|:-------|----------|
 | symbol       | string | 品种编码     |
 | total_profit | float  | 盈亏数据，单位元 |
 
-### 示例代码
+示例代码：
 
 ```python
 from akshare import pro_api
@@ -567,7 +535,7 @@ broker_profit_df = pro.broker_profit(broker="永安期货", start_date="2018-07-
 print(broker_profit_df)
 ```
 
-### 返回示例
+返回示例：
 
 ```
    symbol  total_profit
@@ -620,15 +588,11 @@ print(broker_profit_df)
 
 ## 席位盈利排行
 
-### 接口名称
+接口：broker_in_profit_list
 
-broker_in_profit_list
+接口描述：席位盈利排行数据接口
 
-### 接口描述
-
-席位盈利排行数据接口
-
-### 请求参数
+请求参数：
 
 | 参数名        | 说明     | 举例         |
 |:-----------|:-------|------------|
@@ -636,14 +600,14 @@ broker_in_profit_list
 | end_date   | 查询结束日期 | 2018-07-08 |
 | count      | 返回数据条数 | 10; 默认10条  |
 
-### 返回参数
+返回参数：
 
 | 参数名    | 类型     | 说明         |
 |:-------|:-------|------------|
 | broker | string | 席位         |
 | profit | float  | 席位盈利金额，单位元 |
 
-### 示例代码
+示例代码：
 
 ```python
 from akshare import pro_api
@@ -652,7 +616,7 @@ broker_in_profit_list_df = pro.broker_in_profit_list(start_date="2018-07-08", en
 print(broker_in_profit_list_df)
 ```
 
-### 返回示例
+返回示例：
 
 ```
   broker      profit
@@ -670,15 +634,11 @@ print(broker_in_profit_list_df)
 
 ## 席位亏损排行
 
-### 接口名称
+接口：broker_in_loss_list
 
-broker_in_loss_list
+接口描述：席位亏损排行数据接口
 
-### 接口描述
-
-席位亏损排行数据接口
-
-### 请求参数
+请求参数：
 
 | 参数名        | 说明     | 举例         |
 |:-----------|:-------|------------|
@@ -686,14 +646,14 @@ broker_in_loss_list
 | end_date   | 查询结束日期 | 2018-07-08 |
 | count      | 返回数据条数 | 10; 默认10条  |
 
-### 返回参数
+返回参数：
 
 | 参数名    | 类型     | 说明         |
 |:-------|:-------|------------|
 | broker | string | 席位         |
 | profit | float  | 席位亏损金额，单位元 |
 
-### 示例代码
+示例代码：
 
 ```python
 from akshare import pro_api
@@ -702,7 +662,7 @@ broker_in_loss_list_df = pro.broker_in_loss_list(start_date="2018-07-08", end_da
 print(broker_in_loss_list_df)
 ```
 
-### 返回示例
+返回示例：
 
 ```
   broker     profit
@@ -720,28 +680,24 @@ print(broker_in_loss_list_df)
 
 ## 所有席位数据
 
-### 接口名称
+接口：broker_all
 
-broker_all
+接口描述：所有席位数据接口
 
-### 接口描述
-
-所有席位数据接口
-
-### 请求参数
+请求参数：
 
 | 参数名         | 说明               | 举例                |
 |:------------|:-----------------|-------------------|
 | offset_days | 过滤阈值，N个交易日内上过龙虎榜 | 默认为365，即一年内上过榜的席位 |
 
-### 返回参数
+返回参数：
 
 | 参数名    | 类型     | 说明             |
 |:-------|:-------|----------------|
 | broker | string | 席位             |
 | grade  | string | 盈利评级，最好为A，最差为E |
 
-### 示例代码
+示例代码：
 
 ```python
 from akshare import pro_api
@@ -750,7 +706,7 @@ broker_all_df = pro.broker_all(offset_days="365")
 print(broker_all_df)
 ```
 
-### 返回示例
+返回示例：
 
 ```
     broker grade
@@ -819,15 +775,11 @@ print(broker_all_df)
 
 ## 建仓过程
 
-### 接口名称
+接口：broker_positions_process
 
-broker_positions_process
+接口描述：建仓过程数据接口
 
-### 接口描述
-
-建仓过程数据接口
-
-### 请求参数
+请求参数：
 
 | 参数名        | 说明   | 举例                 |
 |:-----------|:-----|--------------------|
@@ -836,7 +788,7 @@ broker_positions_process
 | start_date | 开始日期 | "2020-02-03"; 可选参数 |
 | end_date   | 结束日期 | "2020-06-03"; 可选参数 |
 
-### 返回参数
+返回参数：
 
 | 参数名          | 类型     | 说明                     |
 |:-------------|:-------|------------------------|
@@ -849,7 +801,7 @@ broker_positions_process
 | total_profit | float  | 累计盈亏金额，正数为盈利，负数为亏损，单位元 |
 | cost         | float  | 估算盈亏平衡价格               |
 
-### 示例代码
+示例代码：
 
 ```python
 from akshare import pro_api
@@ -858,7 +810,7 @@ broker_positions_process_df = pro.broker_positions_process(broker="永安期货"
 print(broker_positions_process_df)
 ```
 
-### 返回示例
+返回示例：
 
 ```
       long  short  trans_date  ... settle_price  total_profit     cost
@@ -877,15 +829,11 @@ print(broker_positions_process_df)
 
 ## 席位对对碰
 
-### 接口名称
+接口：broker_pk
 
-broker_pk
+接口：席位对对碰数据接口
 
-### 接口描述
-
-席位对对碰数据接口
-
-### 请求参数
+请求参数：
 
 | 参数名     | 说明   | 举例   |
 |:--------|:-----|------|
@@ -893,7 +841,7 @@ broker_pk
 | broker2 | 席位2  | 兴证期货 |
 | symbol  | 品种编码 | 螺纹钢  |
 
-### 返回参数
+返回参数：
 
 | 参数名              | 类型  | 说明           |
 |:-----------------|:----|--------------|
@@ -901,7 +849,7 @@ broker_pk
 | win_count        | int | 席位1获胜次数      |
 | recent_win_count | int | 席位1最近10次获胜次数 |
 
-### 示例代码
+示例代码：
 
 ```python
 from akshare import pro_api
@@ -910,7 +858,7 @@ broker_pk_df = pro.broker_pk(broker1="永安期货", broker2="兴证期货", sym
 print(broker_pk_df)
 ```
 
-### 返回示例
+返回示例：
 
 ```
                   broker_pk
