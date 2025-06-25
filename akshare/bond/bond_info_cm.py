@@ -6,6 +6,7 @@ Desc: 中国外汇交易中心暨全国银行间同业拆借中心
 https://www.chinamoney.com.cn/chinese/scsjzqxx/
 """
 
+import re
 import functools
 
 import pandas as pd
@@ -70,6 +71,8 @@ def bond_info_cm(
     issue_year: str = "",
     underwriter: str = "",
     grade: str = "",
+    issue_start_end_dt: str | None = None,
+    page_order: str = "asc"
 ) -> pd.DataFrame:
     """
     中国外汇交易中心暨全国银行间同业拆借中心-数据-债券信息-信息查询
@@ -90,9 +93,22 @@ def bond_info_cm(
     :type underwriter: str
     :param grade: 评级等级
     :type grade: str
+    :param issue_start_end_dt: 发行日期过滤条件 (YYYY-MM-DD格式)
+    :type issue_start_end_dt: str
+    :param page_order: 分页读取顺序 (asc 或 desc)
+    :type page_order: str
     :return: 信息查询结果
     :rtype: pandas.DataFrame
     """
+    # 验证page_order参数
+    if page_order not in ["asc", "desc"]:
+        raise ValueError("Invalid page_order. Must be 'asc' or 'desc'")
+
+    # 验证issue_start_end_dt格式
+    if issue_start_end_dt is not None:
+        if not re.match(r"\d{4}-\d{2}-\d{2}", issue_start_end_dt):
+            raise ValueError("Invalid issue_start_end_dt format. Must be YYYY-MM-DD")
+
     bond_china_close_return_map()
     if bond_type:
         bond_type_df = bond_info_cm_query(symbol="债券类型")
@@ -141,12 +157,46 @@ def bond_info_cm(
     total_page = data_json["data"]["pageTotal"]
     big_df = pd.DataFrame()
     tqdm = get_tqdm()
-    for page in tqdm(range(1, total_page + 1), leave=False):
-        payload.update({"pageNo": page})
+
+    # 根据page_order确定分页方向
+    if page_order == "asc":
+        page_range = range(1, total_page + 1)
+    else:  # desc
+        page_range = range(total_page, 0, -1)
+
+    for page in tqdm(page_range, leave=False):
+        payload.update({"pageNo": str(page)})
         r = requests.post(url, data=payload, headers=headers)
         data_json = r.json()
-        temp_df = pd.DataFrame(data_json["data"]["resultList"])
+        result_list = data_json["data"]["resultList"]
+
+        if len(result_list) == 0:
+            print("[ERROR] No data found on page", page)
+            raise ValueError("No data found")
+
+        if issue_start_end_dt is not None:
+            if page_order == "asc":
+                filtered_list = [
+                    item for item in result_list
+                    if item["issueStartDate"] >= issue_start_end_dt
+                ]
+            else:  # desc
+                filtered_list = [
+                    item for item in result_list
+                    if item["issueStartDate"] <= issue_start_end_dt
+                ]
+
+            if len(filtered_list) == 0:
+                break  # 退出循环
+            result_list = filtered_list
+
+        temp_df = pd.DataFrame(result_list)
         big_df = pd.concat(objs=[big_df, temp_df], ignore_index=True)
+
+    # 如果最终 DataFrame 为空
+    if big_df.empty:
+        return pd.DataFrame()
+
     big_df.rename(
         columns={
             "bondDefinedCode": "查询代码",
