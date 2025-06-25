@@ -81,6 +81,46 @@
 
 ## 更新说明详情
 
+1.17.8 fix: fix forex_spot_em interface
+
+	1. 修复 forex_spot_em 接口
+
+1.17.7 fix: fix futures_spot_price_daily interface
+
+	1. 修复 futures_spot_price_daily 接口
+
+1.17.6 fix: fix stock_tfp_em interface
+
+	1. 修复 stock_tfp_em 接口
+
+1.17.5 fix: fix stock_us_pink_spot_em interface
+
+	1. 修复 stock_us_pink_spot_em 接口
+
+1.17.4 fix: fix stock_news_em interface
+
+	1. 修复 stock_news_em 接口
+
+1.17.3 fix: fix stock_hot_search_baidu interface
+
+	1. 修复 stock_hot_search_baidu 接口
+
+1.17.2 fix: fix stock_ggcg_em interface
+
+	1. 修复 stock_ggcg_em 接口
+	2. 修复 futures_inventory_99 接口
+	3. 修复 futures_contract_info_shfe 接口
+
+1.17.1 fix: fix stock_gdfx_holding_detail_em interface
+
+	1. 修复 stock_gdfx_holding_detail_em 接口
+	2. 修复 stock_individual_spot_xq 接口
+	3. 修复 bond_zh_cov_value_analysis 接口
+
+1.16.99 fix: fix stock_info_sz_delist interface
+
+	1. 修复 stock_info_sz_delist 接口
+
 1.16.98 fix: fix fund_open_fund_info_em interface
 	
 	1. 修复 fund_open_fund_info_em 接口
@@ -5577,6 +5617,24 @@
     3. 修改 air_quality_hist 接口的请求日期格式，从 '2022-01-01' 为 '20220101'
 
 ## 版本更新说明
+
+1.17.8 fix: fix forex_spot_em interface
+
+1.17.7 fix: fix futures_spot_price_daily interface
+
+1.17.6 fix: fix stock_tfp_em interface
+
+1.17.5 fix: fix stock_us_pink_spot_em interface
+
+1.17.4 fix: fix stock_news_em interface
+
+1.17.3 fix: fix stock_hot_search_baidu interface
+
+1.17.2 fix: fix stock_ggcg_em interface
+
+1.17.1 fix: fix stock_gdfx_holding_detail_em interface
+
+1.16.99 fix: fix stock_info_sz_delist interface
 
 1.16.98 fix: fix fund_open_fund_info_em interface
 
