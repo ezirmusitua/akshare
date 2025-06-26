@@ -1,3 +1,4 @@
+
 #!/usr/bin/env python
 # -*- coding:utf-8 -*-
 """
@@ -41,14 +42,14 @@ def bond_debt_nafmii(page: str = "1") -> pd.DataFrame:
             "isReg": "注册或备案",
             "regFileName": "债券名称",
             "regNoticeNo": "注册通知书文号",
-            "regPrdtType": "品种",
+          "regPrdtType": "品种",
             "releaseTime": "更新日期",
             "projPhase": "项目状态",
         },
         inplace=True,
     )
     if "注册通知书文号" not in temp_df.columns:
-        temp_df["注册通知书文号"] = pd.NA
+      temp_df["注册通知书文号"] = pd.NA
     temp_df = temp_df[
         [
             "债券名称",
@@ -62,7 +63,7 @@ def bond_debt_nafmii(page: str = "1") -> pd.DataFrame:
     ]
     temp_df["金额"] = pd.to_numeric(temp_df["金额"], errors="coerce")
     temp_df["更新日期"] = pd.to_datetime(temp_df["更新日期"], errors="coerce").dt.date
-    return temp_df
+    return typing.cast(pd.DataFrame, temp_df)
 
 
 if __name__ == "__main__":
